@@ -1,0 +1,73 @@
+#!/usr/bin/env zsh
+
+# +-----+
+# | Zsh |
+# +-----+
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index} > /dev/null"; unset index # directory stack
+
+# +----+
+# | ls |
+# +----+
+
+alias ls='ls --color=auto'
+alias l='ls -l'
+alias ll='ls -lahF'
+alias lls='ls -lahFtr'
+alias la='ls -A'
+alias lc='ls -CF'
+
+# +----+
+# | cp |
+# +----+
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias la='ls -alh'
+
+# +------+
+# | grep |
+# +------+
+
+#alias grep='grep -ir --color=auto'
+
+
+ #+-----+
+ #| Git |
+ #+-----+
+
+alias gs='git status'
+alias gss='git status -s'
+alias ga='git add'
+alias gp='git push'
+alias gpraise='git blame'
+alias gpo='git push origin'
+alias gpof='git push origin --force-with-lease'
+alias gpofn='git push origin --force-with-lease --no-verify'
+alias gpt='git push --tag'
+alias gtd='git tag --delete'
+alias gtdr='git tag --delete origin'
+alias grb='git branch -r'                                                                           # display remote branch
+alias gplo='git pull origin'
+alias gb='git branch '
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gd='git diff'
+alias gco='git checkout '
+alias gl='git log --oneline'
+alias gr='git remote'
+alias grs='git remote show'
+alias gj="git-jump"
+alias dif="git diff --no-index"
+ # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
+
+# Folders
+alias work="$HOME/workspace"
+alias doc="$HOME/Documents"
+alias dow="$HOME/Downloads"
+alias dot="$HOME/.dotfiles"
+
+
+
