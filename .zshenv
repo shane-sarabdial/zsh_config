@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-echo "Hello"
+
 ###############################
 # EXPORT ENVIRONMENT VARIABLE #
 ###############################
@@ -19,4 +19,16 @@ export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=100000                   # Maximum events for internal history
-export SAVEHIST=100000                   # Maximum events in history file
+export SAVEHIST=100000                   # Maximum events in history fileexport PATH=$PATH:$HOME/.local/opt/go/bin
+
+#go
+export PATH=$PATH:$HOME/.local/opt/go/bin
+
+#bootdev cli
+export PATH=$PATH:$HOME/go/bin
+
+#Editor
+export EDITOR=/usr/bin/nvim
+
+#github command line
+export PATH=$HOME/.local/bin:$PATH

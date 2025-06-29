@@ -61,6 +61,8 @@ alias gr='git remote'
 alias grs='git remote show'
 alias gj="git-jump"
 alias dif="git diff --no-index"
+alias gld="git log --oneline --decorate --graph --parents"
+alias gsc='git switch -c'
  # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
 
 # Folders
