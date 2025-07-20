@@ -6,8 +6,11 @@
 
 !/.config/
 !/.config/zsh/**
+!/.config/alacritty/alacritty.yml
+
 
 !/.dotfiles/
 !/.dotfiles/**
+.dotfiles/bin/.idea/
 
 !/.zshenv

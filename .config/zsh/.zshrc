@@ -99,7 +99,17 @@ bindkey -M vicmd '^a' incarg
 # +---------------------+
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
-
+typeset -Ag ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES=(
+  comment    'fg=#FFB300' # comments
+  command    'fg=#0288D1,bold' # commands (executable names)
+  builtin    'fg=#2E7D32' # builtins (cd, echo, etc)
+  alias      'fg=#B18E3E' # aliases
+  string     'fg=#FFFFFF' # strings (inside quotes)
+  number     'fg=blue' # numbers
+  unknown    'fg=red,bold' # errors (unknown commands)
+  path       'fg=#FFFFFF'
+)
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #zprof
