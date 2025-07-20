@@ -1,0 +1,86 @@
+live_config_reload: true
+terminal:
+  shell:
+    program: "/usr/bin/zsh"
+
+window:
+  opacity: 0.3
+  dimensions:
+    columns: 120
+    lines: 40
+  padding:
+    x: 20
+    y: 10
+  blur: false
+
+scrolling:
+  history: 1000
+  multiplier: 3
+
+colors:
+  # Default foreground and background
+  primary:
+    background: '0x1D1F21'  # terminal background
+    foreground: '#F48FB1'  # default text color
+  hints:
+    start:
+      foreground: '#33691E'
+      background: '0x81A2BE'
+  normal:
+    black: '0x1D1F21'
+    red: '0xCC6666'
+    green: '0xB5BD68'
+    yellow: '0xF0C674'
+    blue: '0x81A2BE'
+    magenta: '0xB294BB'
+    cyan: '0x8ABEB7'
+    white: '0xC5C8C6'
+
+  # Bright ANSI colors
+  bright:
+    black: '0x969896'
+    red: '0xCC6666'
+    green: '0xB5BD68'
+    yellow: '0xF0C674'
+    blue: '0x81A2BE'
+    magenta: '0xB294BB'
+    cyan: '0x8ABEB7'
+    white: '0xFFFFFF'
+
+  selection:
+    text: '#00897B'
+    background: '0x1D1F21'
+
+  cursor:
+    text: '0xFFFFFF'
+    background: '#F48FB1'
+
+  vi_mode_cursor:
+    text: '0xC5C8C6'
+    cursor: '0xC5C8C6'
+
+
+selection:
+  save_to_clipboard: true
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  thickness: 0.2
+
+mouse:
+  bindings:
+    - { event: { button: Middle, kind: Press }, mods: None,action: Paste }
+
+key_bindings:
+  # Copy & Paste
+  - { key: C,     mods: Control|Shift, action: Copy }
+  - { key: V,     mods: Control, action: Paste }
+
+  # Font size
+  - { key: Plus,  mods: Control|Shift, action: IncreaseFontSize }
+  - { key: Minus, mods: Control|Shift, action: DecreaseFontSize }
+ # Spawn a new Alacritty window
+  - { key: N,     mods: Control|Shift, action: SpawnNewInstance }
+

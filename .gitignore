@@ -1,16 +1,14 @@
 *
 .*
 
-!/.git/
 !/.gitignore
+!/.git/
 
 !/.config/
-!/.config/zsh/**
+
+!/.config/alacritty/
 !/.config/alacritty/alacritty.yml
 
-
-!/.dotfiles/
+!/.config/zsh/**
 !/.dotfiles/**
-.dotfiles/bin/.idea/
-
 !/.zshenv
