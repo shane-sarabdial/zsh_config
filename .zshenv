@@ -32,3 +32,4 @@ export EDITOR=/usr/bin/nvim
 
 #github command line
 export PATH=$HOME/.local/bin:$PATH
+. "$HOME/.cargo/env"

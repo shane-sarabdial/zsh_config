@@ -1,0 +1,13 @@
+*
+.*
+
+!/.git/
+!/.gitignore
+
+!/.config/
+!/.config/zsh/**
+
+!/.dotfiles/
+!/.dotfiles/**
+
+!/.zshenv
