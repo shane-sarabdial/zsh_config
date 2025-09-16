@@ -4,7 +4,7 @@ terminal:
     program: "/usr/bin/zsh"
 
 window:
-  opacity: 0.3
+  opacity: 0.2
   dimensions:
     columns: 120
     lines: 40

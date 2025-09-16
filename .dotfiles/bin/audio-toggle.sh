@@ -1,27 +1,34 @@
 #!/usr/bin/env bash
-SINK1="alsa_output.pci-0000_31_00.4.iec958-stereo"
-LABEL1="Speakers"
-SINK2="alsa_output.usb-Schiit_Audio_Schiit_Modi_3E-00.iec958-stereo"
-LABEL2="Headphones"
+# ← change these if you ever re-discover different names
+CARD=47
+USB_SINK="alsa_output.usb-Schiit_Audio_Schiit_Modi_3E-00.iec958-stereo"
+LABEL_USB="Headphones"
+LABEL_SPK="Speakers"
 
-# detect current default
-CUR=$(pactl info | awk '/Default Sink:/ {print $3}')
+# find current default sink
+CUR=$(pactl info | awk -F': ' '/Default Sink/ {print $2}')
 
-# choose the other sink
-if [[ "$CUR" == "$SINK1" ]]; then
-  NEW="$SINK2"
-  FRIENDLY="$LABEL2"
+if [[ "$CUR" == "$USB_SINK" ]]; then
+  # switch to analog speakers
+  pactl set-card-profile $CARD output:analog-stereo+input:analog-stereo
+  # wait a moment for PipeWire to create the sink
+  sleep 0.1
+  # find the new analog-stereo sink name
+  NEW=$(pactl list short sinks \
+        | awk '/pci-0000_31_00.4.*analog-stereo/ {print $2}')
+  FRIENDLY="$LABEL_SPK"
 else
-  NEW="$SINK1"
-  FRIENDLY="$LABEL1"
+  # switch to USB Modi
+  NEW="$USB_SINK"
+  FRIENDLY="$LABEL_USB"
 fi
 
-# switch default
+# set new default sink
 pactl set-default-sink "$NEW"
-# move all streams to it
-for s in $(pactl list short sink-inputs | cut -f1); do
-  pactl move-sink-input "$s" "$NEW"
-done
+# move all playing streams to it
+pactl list short sink-inputs \
+  | cut -f1 \
+  | xargs -r -I{} pactl move-sink-input {} "$NEW"
 
-# notify
+# pop up a notification
 notify-send "Audio switched to" "$FRIENDLY"
